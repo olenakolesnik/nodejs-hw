@@ -8,6 +8,6 @@ export const errorHandler = ((err, req, res, next) => {
     });
   }
   res.status(500).json({
-    message: isProd ? 'Server Error' : err.stack,
+    message: isProd ? 'Server Error' : err.message,
   });
 });
