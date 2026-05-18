@@ -9,6 +9,7 @@ const noteSchema = new Schema({
   },
   content: {
     type: String,
+    required: false,
     default: '',
     trim: true,
   },
@@ -16,10 +17,9 @@ const noteSchema = new Schema({
     type: String,
       enum: TAGS,
       default: 'Todo',
-      index: true,
   },
 }, {
   timestamps: true,
 });
-
+noteSchema.index({ tag: 1 });
 export const Note = model('Note', noteSchema);
